@@ -9,6 +9,11 @@ connectDB();
 
 const app = express();
 
+// Root route
+app.get('/', (req, res) => {
+  res.send('FitTrack Pro Server is Live and Active! 🚀');
+});
+
 // Middleware
 app.use(cors({ 
   origin: [
