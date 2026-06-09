@@ -9,12 +9,7 @@ connectDB();
 
 const app = express();
 
-// Root route
-app.get('/', (req, res) => {
-  res.send('FitTrack Pro Server is Live and Active! 🚀');
-});
-
-// Middleware
+// Middleware (MUST be before any routes)
 app.use(cors({ 
   origin: [
     'http://localhost:5173', 
@@ -25,6 +20,11 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(morgan('dev'));
+
+// Root route
+app.get('/', (req, res) => {
+  res.send('FitTrack Pro Server is Live and Active! 🚀');
+});
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));

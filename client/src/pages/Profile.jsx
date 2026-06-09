@@ -11,7 +11,7 @@ export default function Profile() {
       <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
         <div style={{ 
           height: 140, 
-          background: 'linear-gradient(135deg, var(--primary), var(--accent))',
+          background: 'linear-gradient(135deg, var(--primary), var(--primary-light))',
           position: 'relative'
         }}>
           <div style={{
@@ -47,7 +47,7 @@ export default function Profile() {
           <div className="grid-3" style={{ marginTop: 40 }}>
             <div style={{ padding: 20, background: 'var(--bg-input)', borderRadius: 'var(--radius-md)' }}>
               <div style={{ fontSize: 12, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Current Goal</div>
-              <div style={{ fontSize: 18, fontWeight: 600, color: 'var(--primary-light)', marginTop: 8 }}>{getGoalLabel(user.goal)}</div>
+              <div style={{ fontSize: 18, fontWeight: 600, color: 'var(--primary-dark)', marginTop: 8 }}>{getGoalLabel(user.goal)}</div>
             </div>
             <div style={{ padding: 20, background: 'var(--bg-input)', borderRadius: 'var(--radius-md)' }}>
               <div style={{ fontSize: 12, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 0.5 }}>Daily Calories</div>
@@ -84,22 +84,22 @@ export default function Profile() {
           <div style={{ marginTop: 40 }}>
             <h3 style={{ fontSize: 18, marginBottom: 16 }}>Macro Targets</h3>
             <div className="grid-3">
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 16, background: 'rgba(249,115,22,0.05)', borderRadius: 'var(--radius-md)' }}>
-                <div style={{ width: 8, height: 40, borderRadius: 4, background: '#f97316' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 16, background: 'rgba(13,148,136,0.05)', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ width: 8, height: 40, borderRadius: 4, background: '#0d9488' }} />
                 <div>
                   <div style={{ fontSize: 13, color: 'var(--text-secondary)' }}>Protein</div>
                   <div style={{ fontSize: 18, fontWeight: 700 }}>{user.proteinGoal}g</div>
                 </div>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 16, background: 'rgba(79,172,254,0.05)', borderRadius: 'var(--radius-md)' }}>
-                <div style={{ width: 8, height: 40, borderRadius: 4, background: '#4facfe' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 16, background: 'rgba(59,130,246,0.05)', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ width: 8, height: 40, borderRadius: 4, background: '#3b82f6' }} />
                 <div>
                   <div style={{ fontSize: 13, color: 'var(--text-secondary)' }}>Carbs</div>
                   <div style={{ fontSize: 18, fontWeight: 700 }}>{user.carbsGoal}g</div>
                 </div>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 16, background: 'rgba(234,179,8,0.05)', borderRadius: 'var(--radius-md)' }}>
-                <div style={{ width: 8, height: 40, borderRadius: 4, background: '#eab308' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 16, background: 'rgba(245,158,11,0.05)', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ width: 8, height: 40, borderRadius: 4, background: '#f59e0b' }} />
                 <div>
                   <div style={{ fontSize: 13, color: 'var(--text-secondary)' }}>Fat</div>
                   <div style={{ fontSize: 18, fontWeight: 700 }}>{user.fatGoal}g</div>

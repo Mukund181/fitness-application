@@ -65,12 +65,6 @@ export default function Register() {
         <div className="auth-switch">
           Already have an account? <Link to="/login">Sign in</Link>
         </div>
-
-        <div style={{ display: 'flex', gap: 12, marginTop: 20, justifyContent: 'center', flexWrap: 'wrap' }}>
-          {['🔥 Calorie Tracking', '💪 Workout Logs', '📈 Progress Charts'].map(f => (
-            <span key={f} style={{ fontSize: 11, color: 'var(--text-muted)', background: 'var(--bg-input)', padding: '4px 8px', borderRadius: 'var(--radius-full)' }}>{f}</span>
-          ))}
-        </div>
       </div>
     </div>
   );

@@ -143,7 +143,6 @@ export default function FoodLog() {
                         <span className={`meal-badge ${meal}`}>{meal}</span>
                         <span style={{ fontSize: 13, color: 'var(--text-muted)', fontWeight: 600 }}>{mealCal} kcal</span>
                       </div>
-                      <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>{mealLogs.length} item(s)</div>
                     </div>
                   </div>
                   <button className="btn btn-primary btn-sm" onClick={() => openModal(meal)}>+ Add Food</button>
@@ -161,7 +160,7 @@ export default function FoodLog() {
                         <div className="food-meta">{log.quantity}{log.unit}</div>
                       </div>
                       <div className="food-macros">
-                        {[['P', log.protein, '#f97316'], ['C', log.carbs, '#4facfe'], ['F', log.fat, '#eab308']].map(([l, v, c]) => (
+                        {[['P', log.protein, '#0d9488'], ['C', log.carbs, '#3b82f6'], ['F', log.fat, '#f59e0b']].map(([l, v, c]) => (
                           <div key={l} className="macro-chip">
                             <span className="macro-chip-val" style={{ color: c }}>{Math.round(v)}g</span>
                             <span className="macro-chip-label">{l}</span>
@@ -188,7 +187,7 @@ export default function FoodLog() {
               <svg width="130" height="130" viewBox="0 0 130 130">
                 <circle cx="65" cy="65" r="55" fill="none" stroke="var(--bg-hover)" strokeWidth="12" />
                 <circle cx="65" cy="65" r="55" fill="none"
-                  stroke={calPct > 100 ? '#f87171' : '#f97316'}
+                  stroke={calPct > 100 ? 'var(--danger)' : 'var(--primary)'}
                   strokeWidth="12"
                   strokeDasharray={`${2 * Math.PI * 55}`}
                   strokeDashoffset={`${2 * Math.PI * 55 * (1 - calPct / 100)}`}
@@ -196,8 +195,8 @@ export default function FoodLog() {
                   transform="rotate(-90 65 65)"
                   style={{ transition: 'stroke-dashoffset 0.6s' }}
                 />
-                <text x="65" y="60" textAnchor="middle" fill="#fafafa" fontSize="20" fontWeight="800" fontFamily="Outfit, sans-serif">{macros.calories}</text>
-                <text x="65" y="78" textAnchor="middle" fill="#a1a1aa" fontSize="11">kcal eaten</text>
+                <text x="65" y="60" textAnchor="middle" fill="var(--text-primary)" fontSize="20" fontWeight="800" fontFamily="Outfit, sans-serif">{macros.calories}</text>
+                <text x="65" y="78" textAnchor="middle" fill="var(--text-muted)" fontSize="11">kcal eaten</text>
               </svg>
             </div>
             <div className="calorie-ring-label">
@@ -213,10 +212,10 @@ export default function FoodLog() {
           {/* Macro bars */}
           <div className="macro-progress-list">
             {[
-              { name: 'Protein', val: Math.round(macros.protein), goal: user?.proteinGoal || 150, color: '#f97316' },
-              { name: 'Carbs', val: Math.round(macros.carbs), goal: user?.carbsGoal || 250, color: '#4facfe' },
-              { name: 'Fat', val: Math.round(macros.fat), goal: user?.fatGoal || 65, color: '#eab308' },
-              { name: 'Fiber', val: Math.round(macros.fiber), goal: 30, color: '#43e97b' },
+              { name: 'Protein', val: Math.round(macros.protein), goal: user?.proteinGoal || 150, color: '#0d9488' },
+              { name: 'Carbs', val: Math.round(macros.carbs), goal: user?.carbsGoal || 250, color: '#3b82f6' },
+              { name: 'Fat', val: Math.round(macros.fat), goal: user?.fatGoal || 65, color: '#f59e0b' },
+              { name: 'Fiber', val: Math.round(macros.fiber), goal: 30, color: '#22c55e' },
             ].map(m => (
               <div key={m.name} className="macro-progress-item">
                 <div className="macro-progress-header">

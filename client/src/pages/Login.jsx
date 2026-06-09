@@ -75,12 +75,6 @@ export default function Login() {
         <div className="auth-switch">
           Don't have an account? <Link to="/register">Create one free</Link>
         </div>
-        
-        <div style={{ marginTop: 20, padding: 12, background: 'rgba(249,115,22,0.08)', borderRadius: 'var(--radius-md)', border: '1px solid rgba(249,115,22,0.15)' }}>
-          <p style={{ fontSize: 12, color: 'var(--text-muted)', textAlign: 'center' }}>
-            🔐 Secure authentication with JWT tokens
-          </p>
-        </div>
       </div>
     </div>
   );

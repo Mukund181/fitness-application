@@ -12,8 +12,8 @@ const chartDefaults = {
   maintainAspectRatio: false,
   plugins: { legend: { display: false } },
   scales: {
-    x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#a1a1aa', font: { size: 11 } } },
-    y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#a1a1aa', font: { size: 11 } } }
+    x: { grid: { color: 'rgba(15,23,42,0.06)' }, ticks: { color: '#64748b', font: { size: 11 } } },
+    y: { grid: { color: 'rgba(15,23,42,0.06)' }, ticks: { color: '#64748b', font: { size: 11 } } }
   }
 };
 
@@ -71,8 +71,8 @@ export default function Dashboard() {
     labels: ['Protein', 'Carbs', 'Fat'],
     datasets: [{
       data: [todayFood.totals.protein, todayFood.totals.carbs, todayFood.totals.fat],
-      backgroundColor: ['#f97316', '#4facfe', '#eab308'],
-      borderColor: ['#ea580c', '#3d8fdd', '#d070e0'],
+      backgroundColor: ['#0d9488', '#3b82f6', '#f59e0b'],
+      borderColor: '#ffffff',
       borderWidth: 2,
     }]
   };
@@ -89,18 +89,18 @@ export default function Dashboard() {
     datasets: [{
       label: 'Calories',
       data: weekCalories,
-      backgroundColor: weekCalories.map(c => c > calGoal ? 'rgba(248,113,113,0.7)' : 'rgba(249,115,22,0.7)'),
-      borderColor: weekCalories.map(c => c > calGoal ? '#f87171' : '#f97316'),
-      borderWidth: 2,
+      backgroundColor: weekCalories.map(c => c > calGoal ? 'rgba(239,68,68,0.75)' : 'rgba(13,148,136,0.75)'),
+      borderColor: weekCalories.map(c => c > calGoal ? '#ef4444' : '#0d9488'),
+      borderWidth: 1.5,
       borderRadius: 6,
     }]
   };
 
   const statsCards = [
-    { label: 'Calories Consumed', value: calConsumed, unit: 'kcal', icon: '🔥', gradient: 'linear-gradient(90deg,#f97316,#fb923c)', sub: `of ${calGoal} goal`, color: '#f97316' },
-    { label: 'Calories Burned', value: calBurned, unit: 'kcal', icon: '⚡', gradient: 'linear-gradient(90deg,#eab308,#ef4444)', sub: `${todayWorkouts.length} session(s) today`, color: '#eab308' },
-    { label: 'Net Calories', value: calNet, unit: 'kcal', icon: '⚖️', gradient: 'linear-gradient(90deg,#4facfe,#00f2fe)', sub: `${calRemaining} remaining`, color: '#4facfe' },
-    { label: 'Protein Today', value: Math.round(todayFood.totals.protein), unit: 'g', icon: '💪', gradient: 'linear-gradient(90deg,#43e97b,#38f9d7)', sub: `goal: ${user?.proteinGoal || '—'}g`, color: '#43e97b' },
+    { label: 'Calories Consumed', value: calConsumed, unit: 'kcal', icon: '🔥', gradient: 'linear-gradient(90deg,#0d9488,#14b8a6)', sub: `of ${calGoal} goal`, color: '#0d9488' },
+    { label: 'Calories Burned', value: calBurned, unit: 'kcal', icon: '⚡', gradient: 'linear-gradient(90deg,#ef4444,#f87171)', sub: `${todayWorkouts.length} session(s) today`, color: '#ef4444' },
+    { label: 'Net Calories', value: calNet, unit: 'kcal', icon: '⚖️', gradient: 'linear-gradient(90deg,#3b82f6,#60a5fa)', sub: `${calRemaining} remaining`, color: '#3b82f6' },
+    { label: 'Protein Today', value: Math.round(todayFood.totals.protein), unit: 'g', icon: '💪', gradient: 'linear-gradient(90deg,#10b981,#34d399)', sub: `goal: ${user?.proteinGoal || '—'}g`, color: '#10b981' },
   ];
 
   if (loading) return <div className="loading-page"><div className="loading-spinner" /><p>Loading your dashboard…</p></div>;
@@ -120,7 +120,7 @@ export default function Dashboard() {
             <span>{calPct}% ({calConsumed} / {calGoal} kcal)</span>
           </div>
           <div className="progress-bar-wrap" style={{ height: 10 }}>
-            <div className="progress-bar-fill" style={{ width: `${calPct}%`, background: calPct > 100 ? 'linear-gradient(90deg,#f87171,#ff6b6b)' : undefined }} />
+            <div className="progress-bar-fill" style={{ width: `${calPct}%`, background: calPct > 100 ? '#ef4444' : undefined }} />
           </div>
         </div>
       </div>
@@ -128,8 +128,8 @@ export default function Dashboard() {
       {/* Stats */}
       <div className="stats-grid">
         {statsCards.map(s => (
-          <div key={s.label} className="stat-card" style={{ '--gradient': s.gradient }}>
-            <div className="stat-icon" style={{ background: `${s.color}20` }}>{s.icon}</div>
+          <div key={s.label} className="stat-card">
+            <div className="stat-icon" style={{ background: `${s.color}15`, color: s.color }}>{s.icon}</div>
             <div className="stat-info">
               <div className="stat-value">{s.value}<span style={{ fontSize: 14, fontWeight: 400, color: 'var(--text-muted)', marginLeft: 4 }}>{s.unit}</span></div>
               <div className="stat-label">{s.label}</div>
@@ -181,7 +181,7 @@ export default function Dashboard() {
                 </div>
               </div>
               <div className="macro-legend">
-                {[['Protein', '#f97316', todayFood.totals.protein, 'g'], ['Carbs', '#4facfe', todayFood.totals.carbs, 'g'], ['Fat', '#eab308', todayFood.totals.fat, 'g']].map(([name, color, val, unit]) => (
+                {[['Protein', '#0d9488', todayFood.totals.protein, 'g'], ['Carbs', '#3b82f6', todayFood.totals.carbs, 'g'], ['Fat', '#f59e0b', todayFood.totals.fat, 'g']].map(([name, color, val, unit]) => (
                   <div key={name} className="macro-legend-item">
                     <div className="macro-dot" style={{ background: color }} />
                     <div>

@@ -76,7 +76,6 @@ export default function ActivityLog() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
         <div>
           <h1 style={{ fontSize: 24, fontWeight: 800, fontFamily: 'Outfit, sans-serif' }}>Activity Log</h1>
-          <p style={{ color: 'var(--text-secondary)' }}>Track your past workouts and estimated calorie burns</p>
         </div>
         <button className="btn btn-primary" onClick={() => setIsModalOpen(true)}>
           + Log Workout

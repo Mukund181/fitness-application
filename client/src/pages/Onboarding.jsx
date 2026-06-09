@@ -142,9 +142,9 @@ export default function Onboarding() {
                 value={form.targetWeight} onChange={e => updateForm('targetWeight', e.target.value)} min="30" max="300" />
             </div>
             {form.height && form.weight && (
-              <div style={{ background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.2)', borderRadius: 'var(--radius-md)', padding: 14, marginTop: 8 }}>
+              <div style={{ background: 'rgba(13,148,136,0.06)', border: '1px solid rgba(13,148,136,0.15)', borderRadius: 'var(--radius-md)', padding: 14, marginTop: 8 }}>
                 <p style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
-                  📊 Estimated BMI: <strong style={{ color: 'var(--primary-light)' }}>
+                  📊 Estimated BMI: <strong style={{ color: 'var(--primary-dark)' }}>
                     {(form.weight / Math.pow(form.height / 100, 2)).toFixed(1)}
                   </strong>
                 </p>
@@ -162,10 +162,10 @@ export default function Onboarding() {
             <div className="goal-option-grid">
               {goalOptions.map(g => (
                 <button
-                  key={g.value}
-                  type="button"
-                  className={`goal-option ${form.goal === g.value ? 'selected' : ''}`}
-                  onClick={() => updateForm('goal', g.value)}
+                   key={g.value}
+                   type="button"
+                   className={`goal-option ${form.goal === g.value ? 'selected' : ''}`}
+                   onClick={() => updateForm('goal', g.value)}
                 >
                   <div className="goal-option-emoji">{g.emoji}</div>
                   <div className="goal-option-label">{g.label}</div>
@@ -174,7 +174,7 @@ export default function Onboarding() {
               ))}
             </div>
 
-            <div style={{ background: 'rgba(52,211,153,0.08)', border: '1px solid rgba(52,211,153,0.2)', borderRadius: 'var(--radius-md)', padding: 14, marginTop: 4 }}>
+            <div style={{ background: 'rgba(34,197,94,0.06)', border: '1px solid rgba(34,197,94,0.15)', borderRadius: 'var(--radius-md)', padding: 14, marginTop: 4 }}>
               <p style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
                 🧮 We'll calculate your <strong style={{ color: 'var(--success)' }}>BMR → TDEE → Calorie Goal + Macro Splits</strong> using the Mifflin-St Jeor equation.
               </p>

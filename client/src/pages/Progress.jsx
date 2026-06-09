@@ -14,10 +14,10 @@ export default function Progress() {
     date: new Date().toISOString().split('T')[0],
     weight: user?.weight || '',
     bodyFat: '',
+    muscleMass: '',
     chest: '',
     waist: '',
-    arms: '',
-    legs: '',
+    hips: '',
     notes: ''
   });
 
@@ -44,10 +44,8 @@ export default function Progress() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // API expects chest, waist, arms, legs in a metrics object, wait no, let's see how server expects it.
-      // Usually standard or flat. Let's send flat, server will parse.
       const payload = { ...formData };
-      for (const key of ['weight', 'bodyFat', 'chest', 'waist', 'arms', 'legs']) {
+      for (const key of ['weight', 'bodyFat', 'chest', 'waist', 'muscleMass', 'hips']) {
         if (payload[key]) payload[key] = Number(payload[key]);
       }
       
@@ -72,11 +70,11 @@ export default function Progress() {
     datasets: [{
       label: 'Weight (kg)',
       data: weights,
-      borderColor: '#f97316',
-      backgroundColor: 'rgba(249,115,22,0.1)',
+      borderColor: '#0d9488',
+      backgroundColor: 'rgba(13,148,136,0.1)',
       borderWidth: 3,
       pointBackgroundColor: '#fff',
-      pointBorderColor: '#f97316',
+      pointBorderColor: '#0d9488',
       pointBorderWidth: 2,
       pointRadius: 4,
       fill: true,
@@ -89,8 +87,8 @@ export default function Progress() {
     maintainAspectRatio: false,
     plugins: { legend: { display: false } },
     scales: {
-      y: { grid: { color: 'rgba(255,255,255,0.05)' } },
-      x: { grid: { color: 'rgba(255,255,255,0.05)' } }
+      y: { grid: { color: 'rgba(15,23,42,0.06)' }, ticks: { color: '#64748b', font: { size: 11 } } },
+      x: { grid: { color: 'rgba(15,23,42,0.06)' }, ticks: { color: '#64748b', font: { size: 11 } } }
     }
   };
 
@@ -114,7 +112,7 @@ export default function Progress() {
             </div>
             
             <form onSubmit={handleSubmit}>
-              <div className="metrics-entry-grid">
+              <div className="metrics-entry-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
                 <div className="metric-input-card">
                   <label>Weight (kg)*</label>
                   <input type="number" step="0.1" name="weight" className="form-input" style={{ textAlign: 'center', fontSize: 18, fontWeight: 700 }} value={formData.weight} onChange={handleChange} required />
@@ -124,8 +122,20 @@ export default function Progress() {
                   <input type="number" step="0.1" name="bodyFat" className="form-input" style={{ textAlign: 'center', fontSize: 18, fontWeight: 700 }} value={formData.bodyFat} onChange={handleChange} />
                 </div>
                 <div className="metric-input-card">
+                  <label>Muscle Mass (kg)</label>
+                  <input type="number" step="0.1" name="muscleMass" className="form-input" style={{ textAlign: 'center', fontSize: 18, fontWeight: 700 }} value={formData.muscleMass} onChange={handleChange} />
+                </div>
+                <div className="metric-input-card">
+                  <label>Chest (cm)</label>
+                  <input type="number" step="0.1" name="chest" className="form-input" style={{ textAlign: 'center', fontSize: 18, fontWeight: 700 }} value={formData.chest} onChange={handleChange} />
+                </div>
+                <div className="metric-input-card">
                   <label>Waist (cm)</label>
                   <input type="number" step="0.1" name="waist" className="form-input" style={{ textAlign: 'center', fontSize: 18, fontWeight: 700 }} value={formData.waist} onChange={handleChange} />
+                </div>
+                <div className="metric-input-card">
+                  <label>Hips (cm)</label>
+                  <input type="number" step="0.1" name="hips" className="form-input" style={{ textAlign: 'center', fontSize: 18, fontWeight: 700 }} value={formData.hips} onChange={handleChange} />
                 </div>
               </div>
               
