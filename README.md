@@ -51,15 +51,6 @@ A complete, full-stack fitness tracking application built with the MERN stack (M
    \`\`\`
    *(The frontend development server will run on http://localhost:5173)*
 
-### Environment Variables
-Check \`server/.env\` (or create one) to ensure your backend environment matches:
-\`\`\`env
-PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/fittrack
-JWT_SECRET=fittrack_super_secret_jwt_key_2024
-JWT_EXPIRE=7d
-NODE_ENV=development
-\`\`\`
 
 ## Deployment to Cloud
 To keep the application running 24/7 (so you can access it without your PC being on):
